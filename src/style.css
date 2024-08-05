@@ -1,0 +1,165 @@
+/* Reset CSS by Andy Bell */
+
+*,
+*::before,
+*::after {
+    font: inherit;
+    box-sizing: border-box;
+}
+
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+    margin: 0;
+}
+
+
+ul[role='list'],
+ol[role='list'] {
+    list-style: none;
+}
+
+
+html,
+body {
+    height: 100%;
+}
+
+
+html:focus-within {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+}
+
+
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+}
+
+
+img,
+picture {
+    max-width: 100%;
+    display: block;
+}
+
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+
+@font-face {
+    font-family: "Inconsolata";
+    src: url("/fonts/inconsolata/static/Inconsolata-Bold.ttf") format('truetype');
+    font-weight: bold; 
+}
+
+
+@font-face {
+    font-family: "Inconsolata";
+    src: url("/fonts/inconsolata/static/Inconsolata-Regular.ttf") format('truetype');
+    font-weight: normal; 
+}
+
+
+@font-face {
+    font-family: "Inter";
+    src: url("/fonts/inter/static/Inter-Bold.ttf") format('truetype');
+    font-weight: bold; 
+}
+
+
+@font-face {
+    font-family: "Inter";
+    src: url("/fonts/inter/static/Inter-Regular.ttf") format('truetype');
+    font-weight: normal; 
+}
+
+
+@font-face {
+    font-family: "Lora";
+    src: url("/fonts/lora/static/Lora-Bold.ttf") format('truetype');
+    font-weight: bold; 
+}
+
+
+@font-face {
+    font-family: "Lora";
+    src: url("/fonts/lora/static/Lora-Regular.ttf") format('truetype');
+    font-weight: normal; 
+}
+
+
+:root {
+    --clr-accent-300: hsl(274, 82%, 50%);
+    --clr-accent-200: hsl(274, 82%, 60%);
+    --clr-accent-100: hsl(0, 100%, 66%);
+
+    --clr-neutral-800: hsl(0, 0%, 2%);
+    --clr-neutral-700: hsl(0, 0%, 12%);
+    --clr-neutral-600: hsl(0, 0%, 18%);
+    --clr-neutral-500: hsl(0, 0%, 23%);
+    --clr-neutral-400: hsl(0, 0%, 51%);
+    --clr-neutral-300: hsl(0, 0%, 91%);
+    --clr-neutral-200: hsl(0, 0%, 96%);
+    --clr-neutral-100: hsl(0, 0%, 100%);
+
+    --clr-overlay-100: hsla(0, 0%, 100%, 0.25);
+
+    --ff-serif: "Lora", sans-serif;
+    --ff-sans-serif: "Inter", serif;
+    --ff-mono: "Inconsolata", monospace;
+
+    --fs-500: 4rem;      /* 64px */
+    --fs-400: 1.5rem;    /* 24px */
+    --fs-300: 1.25rem;   /* 20px */
+    --fs-200: 1.125rem;  /* 18px */
+    --fs-100: 0.875rem;  /* 14px */
+
+    @media (width <= 36.563em) {
+        --fs-500: 2rem;
+        --fs-400: 1.125rem;
+        --fs-300: 1rem;
+        --fs-200: 0.938rem
+    }
+}
+
+
+/* utils */
+.fw-bold { font-weight: normal; }
+
+.fw-bold { font-weight: bold; }
+
+.clr-accent-purple { color: var(--clr-accent-200); }
+
+
+/* general */
+body {
+    --app-clr-background: var(--clr-neutral-100);
+    --app-clr-container: var(--clr-neutral-200);
+    --app-clr-body-text: var(--clr-neutral-600);
+    --app-clr-body-devider: var(--clr-neutral-300);
+    --app-clr-toggle: var(--clr-neutral-400);
+
+    font-family: var(--ff-sans-serif);
+    font-size: var(--fs-200);
+}
+
+
