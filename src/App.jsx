@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Outlet } from 'react-router-dom'
 import Search from './components/Search'
-import FontChanger from "./components/FontChanger"
+import FontSelector from "./components/FontSelector"
 import Toggle from "./components/Toggle"
 import logo from "./assets/images/logo.svg"
 
@@ -14,7 +14,7 @@ export default function App() {
         <img src={logo} alt="dictionary logo" />
 
         <div className="primary-header__controls">
-          <FontChanger font={pageFont} />
+          <FontSelector font={pageFont} />
           <Toggle />
         </div>
       </header>

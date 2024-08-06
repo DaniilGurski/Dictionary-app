@@ -2,7 +2,7 @@
 
 export default function Toggle() {
   return (
-    <div className="toggle-container">
+    <div className="primary-header__toggle-container flex">
         <input className="toggle" id="theme-toggle" type="checkbox" aria-label="change page theme" />
 
         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22">
