@@ -1,6 +1,9 @@
+import { useEffect, useRef, useState } from "react"
 
 
 export default function FontSelector({ font }) {
+    const [dropdownOpened, setDropdownOpened] = useState(false)
+
     return (
         <div className="font-selector">
             <button 
@@ -8,13 +11,17 @@ export default function FontSelector({ font }) {
             id="font-selector" 
             role="combobox"
             aria-label="font changer button" 
-            aria-expanded="false" 
+            aria-expanded={dropdownOpened}
             aria-controls="font-list"
-            aria-haspopup="true">
+            aria-haspopup="true"
+            onClick={() => setDropdownOpened(!dropdownOpened)}>
                 {font}
             </button>
 
-            <ul className="font-selector__fonts grid" id="font-list" role="listbox">
+            <ul 
+            className="font-selector__fonts grid" 
+            id="font-list" 
+            role="listbox">
                 <li className="fw-bold ff-sans-serif" role="option"> 
                     <input type="radio" id="sans-serif" name="font-option"/>
                     <label htmlFor="sans-serif"> Sans Serif </label>
