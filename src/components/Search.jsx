@@ -5,7 +5,7 @@ export default function Search() {
         <form>
             <div className="search-bar">
                 <input type="search" />
-                <button aria-label="search for a word">
+                <button className="search-bar__find" aria-label="search for a word">
                     <img src={searchIcon} alt="" />
                 </button>
             </div>
