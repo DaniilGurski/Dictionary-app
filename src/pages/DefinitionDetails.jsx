@@ -1,58 +1,56 @@
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom"
+import DefinitionHeader from "../components/DefinitionHeader";
 import NoDefinitionsFound from "./NoDefinitionsFound";
+import DefinitionMeaning from "../components/DefinitionMeaning";
 
-import playIcon from "../assets/images/icon-play.svg"
 
+const fetchDefinitionDetails = async (searched) => {
+  const res = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${searched}`);
+  const json = await res.json();
 
-const fetchDefinitionDetails = (searched) => {
-  return fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${searched}`).then(res => {
-    // I need both throw an error, but also get error object from the API ?
-    if (res.status === 404) {
-      throw new Error("No definitions found")
-    }
-    return res.json()
-  });
+  if (!res.ok) {
+    throw json;
+  }
+  return json;
 }
 
 export default function DefinitionDetails() {
   const { word: searched } = useParams();
-  const { data, isLoading, isError } = useQuery(["dictionary", searched], () => fetchDefinitionDetails(searched), {
+  const { data, isLoading, isError, error } = useQuery({
+    queryKey: ["dictionary", searched],
+    queryFn: () => fetchDefinitionDetails(searched),
+    select: (data) => {
+      return data[0];
+    },
     retry: false,
-    refetchOnWindowFocus: false,
-  });
+    refetchOnWindowFocus: false
+  })
 
-  if (isError) {
-    return <NoDefinitionsFound errorData={data} />
-  }
+
   if (isLoading) {
     return <h1> Loading ... </h1>
   }
 
-  function getPhoneticPronounce(source) {
-    const phoneticWithAudio = source.phonetics.find(phonetic => phonetic.audio);
-    return phoneticWithAudio || null;
+  if (isError) {
+    return <NoDefinitionsFound errorData={error} />
   }
 
   return (
-    <div className="definition-block">
-      <header className="definition-block__header"> 
-        <div>
-          <h1 className="fw-bold fs-heading-l"> {data[0].word} </h1>
-          <span className="fw-regular clr-accent-purple"> {data[0].phonetic} </span>
-        </div>
-
-        {/* display the audio play button when an audio file is attached */}
-        {getPhoneticPronounce(data[0]) && 
-        <div>
-          <audio src={getPhoneticPronounce(data[0])}/>
-          <button className="icon-button">
-            <img src={playIcon} alt="" />
-          </button>
-        </div>
+    <article className="definition-block">
+      <DefinitionHeader data={data} />
+      <ul> 
+        {
+          data.meanings.map((meaning, index) => {
+            return (
+              <li key={index}> 
+                <DefinitionMeaning meaning={meaning} /> 
+              </li>
+            )
+          })
         }
+      </ul>
 
-      </header>
-    </div>
+    </article>
   )
 }
