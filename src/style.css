@@ -165,6 +165,10 @@ select {
 
 .fw-bold { font-weight: bold; }
 
+.fs-heading-l {
+    font-size: var(--fs-500);
+}
+
 .clr-accent-purple { color: var(--clr-accent-200); }
 
 .text-center { text-align: center; }
@@ -177,6 +181,12 @@ select {
     position: absolute;
     white-space: nowrap;
     width: 1px;
+}
+
+.icon-button {
+    border: none;
+    background: none;
+    cursor: pointer;
 }
 
 
@@ -270,6 +280,7 @@ body {
     position: absolute;
     left: -50%;
     border-radius: 1rem;
+    background: var(--clr-neutral-100);
     box-shadow: 0px 0px 30px hsla(0, 0%, 0%, 10%);
 }
 
@@ -383,4 +394,22 @@ body {
     cursor: pointer;
     border: 0;
     background: none;
+}
+
+
+.definition-block {
+
+}
+
+
+.definition-block__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.definition-block__play-button {
+    cursor: pointer;
+    border: none;
 }
