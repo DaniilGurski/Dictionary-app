@@ -13,10 +13,6 @@ export const router = createBrowserRouter([
                 path: ":word",
                 element: <DefinitionDetails />
             },
-            {
-                path: "no-definitions-found",
-                element: <NoDefinitionsFound />
-            }
         ]
     
     }

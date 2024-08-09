@@ -118,7 +118,7 @@ select {
     --clr-neutral-700: hsl(0, 0%, 12%);
     --clr-neutral-600: hsl(0, 0%, 18%);
     --clr-neutral-500: hsl(0, 0%, 23%);
-    --clr-neutral-400: hsl(0, 0%, 51%);
+    --clr-neutral-400: hsl(0, 0%, 43%);
     --clr-neutral-300: hsl(0, 0%, 91%);
     --clr-neutral-200: hsl(0, 0%, 96%);
     --clr-neutral-100: hsl(0, 0%, 100%);
@@ -162,14 +162,11 @@ select {
 .ff-mono { font-family: var(--ff-mono); }
 
 .fw-regular { font-weight: normal; }
-
 .fw-bold { font-weight: bold; }
+.fs-heading-l { font-size: var(--fs-500); }
 
-.fs-heading-l {
-    font-size: var(--fs-500);
-}
-
-.clr-accent-purple { color: var(--clr-accent-200); }
+.clr-accent-200 { color: var(--clr-accent-200); }
+.clr-neutral-400 { color: var(--clr-neutral-400); }
 
 .text-center { text-align: center; }
 
@@ -412,4 +409,10 @@ body {
 .definition-block__play-button {
     cursor: pointer;
     border: none;
+}
+
+
+/* synonyms, antonyms ... */
+.enumeration > ul {
+    padding: 0;
 }

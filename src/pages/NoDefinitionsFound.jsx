@@ -1,12 +1,15 @@
 
 
-export default function NoDefinitionsFound() {
+export default function NoDefinitionsFound({ errorData }) {
+  const {title, message, resolution} = errorData;
+
   return (
     <div className="error-page text-center grid">
         😕
-        <h1> No Definitions Found </h1>
-        <p> 
-            Sorry pal, we couldn't find definitions for the word you were looking for. You can try the search again at later time or head to the web instead.
+        <h1 className="fw-bold"> {title} </h1>
+
+        <p className="clr-neutral-400">
+          {message} <br /> {resolution}
         </p>
     </div>
   )
