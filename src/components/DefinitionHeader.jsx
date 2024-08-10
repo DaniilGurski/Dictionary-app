@@ -20,7 +20,7 @@ export default function DefinitionHeader({ data }) {
             {getPhoneticPronounce(data) &&
                 <div>
                     <audio src={getPhoneticPronounce(data).audio} ref={audioRef} />
-                    <button className="icon-button">
+                    <button className="definition-block__audio-button icon-button">
                         <img src={playIcon} alt="" onClick={() => audioRef.current.play()} />
                     </button>
                 </div>

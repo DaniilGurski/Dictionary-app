@@ -39,7 +39,7 @@ export default function DefinitionDetails() {
   return (
     <article className="definition-block">
       <DefinitionHeader data={data} />
-      <ul> 
+      <ul className="definition-block__meanings" role="list"> 
         {
           data.meanings.map((meaning, index) => {
             return (
@@ -51,6 +51,12 @@ export default function DefinitionDetails() {
         }
       </ul>
 
+      <footer className="definition-block__source text-underline clr-neutral-400">
+        <p className="flex"> 
+          Source
+          <a className="clr-neutral-600" href={data.sourceUrls[0]}> {data.sourceUrls[0]} </a>
+        </p>
+      </footer>
     </article>
   )
 }
