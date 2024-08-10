@@ -26,6 +26,7 @@ ul[role='list'],
 ul[role='listbox'],
 ol[role='list'],
 ol[role='listbox']{
+    padding: var(--list-padding, 0);
     list-style: none;
 }
 
@@ -157,18 +158,42 @@ select {
 
 .ff-sans-serif { font-family: var(--ff-sans-serif); }
 
+
 .ff-serif { font-family: var(--ff-serif); }
+
 
 .ff-mono { font-family: var(--ff-mono); }
 
+
 .fw-regular { font-weight: normal; }
+
+
 .fw-bold { font-weight: bold; }
+
+
 .fs-heading-l { font-size: var(--fs-500); }
 
+
 .clr-accent-200 { color: var(--clr-accent-200); }
+
+
+.clr-neutral-600 { color: var(--clr-neutral-600); }
+
+
 .clr-neutral-400 { color: var(--clr-neutral-400); }
 
+
 .text-center { text-align: center; }
+
+
+.text-underline { 
+    text-decoration: underline; 
+    text-underline-offset: var(--underline-offset, auto);
+}
+
+
+.italic { font-style: italic; }
+
 
 .visually-hidden {
     clip: rect(0 0 0 0);
@@ -179,6 +204,7 @@ select {
     white-space: nowrap;
     width: 1px;
 }
+
 
 .icon-button {
     border: none;
@@ -272,7 +298,7 @@ body {
 .font-selector__fonts {
     display: none;
     width: max(11.438rem, 90%);
-    padding: 1.5rem;
+    --list-padding: 1.5rem;
 
     position: absolute;
     left: -50%;
@@ -394,11 +420,6 @@ body {
 }
 
 
-.definition-block {
-
-}
-
-
 .definition-block__header {
     display: flex;
     justify-content: space-between;
@@ -406,9 +427,60 @@ body {
 }
 
 
-.definition-block__play-button {
-    cursor: pointer;
-    border: none;
+.definition-block__audio-button {
+    width: clamp(3rem, 10vw, 4.688rem);
+}
+
+
+.definition-block__source {
+    border-top: 1px solid var(--app-clr-body-devider);
+    padding-top: 1.25rem;
+    --underline-offset: 8px;
+}
+
+
+.definition-block__source > .flex {
+    flex-wrap: wrap;
+    --gap: 1.25rem;
+}
+
+
+.definition-meaning > h2 {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+
+.definition-meaning > h2::after {
+    content: "";
+    display: inline-block;
+    width: 100%;
+    height: 1px;
+
+    background-color: var(--app-clr-body-devider);
+}
+
+
+.definition-meaning__definitions {
+    padding-left: 1rem;
+    list-style-type: disc;
+
+    @media (width >= 36.563em) {
+        padding-left: 2.938rem;
+    } 
+}
+
+
+.definition-meaning__definitions > li[data-example]::after {
+    content:  ' "'attr(data-example)'" ';
+    display: block;
+    color: var(--clr-neutral-400);
+}
+
+
+.definition-meaning__definitions > li::marker {
+    color: var(--clr-accent-300);
 }
 
 
