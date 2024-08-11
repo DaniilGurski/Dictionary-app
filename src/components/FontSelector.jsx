@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react"
+import { useState } from "react"
 
 
 export default function FontSelector({ font }) {
@@ -26,11 +26,11 @@ export default function FontSelector({ font }) {
                     <input type="radio" id="sans-serif" name="font-option"/>
                     <label htmlFor="sans-serif"> Sans Serif </label>
                 </li>
-                <li className="fw-bold ff-sans-serif" role="option"> 
+                <li className="fw-bold ff-serif" role="option"> 
                     <input type="radio" id="serif" name="font-option"/>
                     <label htmlFor="serif"> Serif </label>
                 </li>
-                <li className="fw-bold ff-sans-serif" role="option"> 
+                <li className="fw-bold ff-mono" role="option"> 
                     <input type="radio" id="mono" name="font-option"/>
                     <label htmlFor="mono"> Mono </label>
                 </li>

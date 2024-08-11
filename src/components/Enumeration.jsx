@@ -6,7 +6,11 @@ export default function Enumeration({ subject, items }) {
         <ul className="flex" role="list">
             {
                 items.map((item, index)=> {
-                    return <li className="fw-bold clr-accent-200" key={index}> {item} </li>
+                    return (
+                    <li className="fw-bold clr-accent-200" key={index}> 
+                      {item}
+                    </li>
+                    )
                 })
             }
         </ul>
