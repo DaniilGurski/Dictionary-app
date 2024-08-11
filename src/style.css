@@ -26,6 +26,7 @@ ul[role='list'],
 ul[role='listbox'],
 ol[role='list'],
 ol[role='listbox']{
+    margin: 0;
     padding: var(--list-padding, 0);
     list-style: none;
 }
@@ -420,6 +421,13 @@ body {
 }
 
 
+.definition-block {
+    display: grid;
+    row-gap: clamp(2rem, 5vw, 2.625rem);
+    padding-block: clamp(1.438rem, 4vw, 2.813rem);
+}
+
+
 .definition-block__header {
     display: flex;
     justify-content: space-between;
@@ -429,6 +437,11 @@ body {
 
 .definition-block__audio-button {
     width: clamp(3rem, 10vw, 4.688rem);
+}
+
+
+.definition-block__meanings {
+    --gap: 2.188rem;
 }
 
 
@@ -442,6 +455,23 @@ body {
 .definition-block__source > .flex {
     flex-wrap: wrap;
     --gap: 1.25rem;
+}
+
+
+.definition-block__source a::after {
+    content: url("./assets/images/icon-new-window.svg");
+    margin-left: 0.5rem;
+}
+
+
+.definition-meaning {
+    --gap: 2rem;
+}
+
+
+/* h3 and ul */
+.definition-meaning > .grid {
+    --gap: 1rem;
 }
 
 
@@ -463,6 +493,7 @@ body {
 
 
 .definition-meaning__definitions {
+    --gap: 0.75rem;
     padding-left: 1rem;
     list-style-type: disc;
 
@@ -484,7 +515,25 @@ body {
 }
 
 
+
+.error-page {
+    margin-top: 8.25rem;
+}
+
+
 /* synonyms, antonyms ... */
+.enumeration {
+    /* reduce the distance with the upper element */
+    margin-top: -0.5rem;
+
+    @media (width >= 36.563em) {
+        margin: 0;
+    }
+    
+}
+
+
 .enumeration > ul {
+    flex-wrap: wrap;
     padding: 0;
 }
