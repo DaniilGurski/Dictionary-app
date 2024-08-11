@@ -1,7 +1,7 @@
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom"
 import DefinitionHeader from "../components/DefinitionHeader";
-import NoDefinitionsFound from "./NoDefinitionsFound";
+import ErrorPage from "./ErrorPage";
 import DefinitionMeaning from "../components/DefinitionMeaning";
 
 
@@ -33,18 +33,18 @@ export default function DefinitionDetails() {
   }
 
   if (isError) {
-    return <NoDefinitionsFound errorData={error} />
+    return <ErrorPage errorData={error} />
   }
 
   return (
     <article className="definition-block">
       <DefinitionHeader data={data} />
-      <ul className="definition-block__meanings" role="list"> 
+      <ul className="definition-block__meanings grid" role="list">
         {
           data.meanings.map((meaning, index) => {
             return (
-              <li key={index}> 
-                <DefinitionMeaning meaning={meaning} /> 
+              <li key={index}>
+                <DefinitionMeaning meaning={meaning} />
               </li>
             )
           })
@@ -52,9 +52,9 @@ export default function DefinitionDetails() {
       </ul>
 
       <footer className="definition-block__source text-underline clr-neutral-400">
-        <p className="flex"> 
+        <p className="flex">
           Source
-          <a className="clr-neutral-600" href={data.sourceUrls[0]}> {data.sourceUrls[0]} </a>
+          <a className="clr-neutral-600" href={data.sourceUrls[0]} aria-label="source url" target="_blank"> {data.sourceUrls[0]} </a>
         </p>
       </footer>
     </article>
