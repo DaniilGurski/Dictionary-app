@@ -1,8 +1,10 @@
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom"
+
 import DefinitionHeader from "../components/DefinitionHeader";
 import ErrorPage from "./ErrorPage";
 import DefinitionMeaning from "../components/DefinitionMeaning";
+
 
 
 const fetchDefinitionDetails = async (searched) => {
@@ -26,7 +28,6 @@ export default function DefinitionDetails() {
     retry: false,
     refetchOnWindowFocus: false
   })
-
 
   if (isLoading) {
     return <h1> Loading ... </h1>
