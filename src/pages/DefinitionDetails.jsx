@@ -55,7 +55,7 @@ export default function DefinitionDetails() {
       <footer className="definition-block__source text-underline clr-neutral-400">
         <p className="flex">
           Source
-          <a className="clr-neutral-600" href={data.sourceUrls[0]} aria-label="source url" target="_blank"> {data.sourceUrls[0]} </a>
+          <a href={data.sourceUrls[0]} aria-label="source url" target="_blank"> {data.sourceUrls[0]} </a>
         </p>
       </footer>
     </article>
