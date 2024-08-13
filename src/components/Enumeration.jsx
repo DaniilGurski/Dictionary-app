@@ -7,7 +7,7 @@ export default function Enumeration({ subject, items }) {
             {
                 items.map((item, index)=> {
                     return (
-                    <li className="fw-bold clr-accent-200" key={index}> 
+                    <li className="enumeration__item fw-bold clr-accent-200" key={index}> 
                       {item}
                     </li>
                     )
