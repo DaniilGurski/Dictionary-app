@@ -112,6 +112,8 @@ select {
 
 
 :root {
+    color-scheme: light dark;
+
     --clr-accent-300: hsl(274, 82%, 50%);
     --clr-accent-200: hsl(274, 82%, 60%);
     --clr-accent-100: hsl(0, 100%, 66%);
@@ -124,7 +126,6 @@ select {
     --clr-neutral-300: hsl(0, 0%, 91%);
     --clr-neutral-200: hsl(0, 0%, 96%);
     --clr-neutral-100: hsl(0, 0%, 100%);
-
     --clr-overlay-100: hsla(0, 0%, 100%, 0.25);
 
     --ff-serif: "Lora", serif;
@@ -138,12 +139,41 @@ select {
     --fs-200: 1.125rem;  /* 18px */
     --fs-100: 0.875rem;  /* 14px */
 
+    --app-clr-container: var(--clr-neutral-200);
+    --app-clr-dropdown: var(--clr-neutral-100);
+    --app-clr-body-text: var(--clr-neutral-600);
+    --app-clr-body-devider: var(--clr-neutral-300);
+    --app-clr-toggle: var(--clr-neutral-400);
+    --app-clr-shadow: hsla(0, 0%, 0%, 10%);
+
     @media (width <= 36.563em) {
         --fs-500: 2rem;
         --fs-400: 1.125rem;
         --fs-300: 1rem;
         --fs-200: 0.938rem
     }
+
+    @media (prefers-color-scheme: dark) {
+        --app-clr-background: var(--clr-neutral-800);
+        --app-clr-container: var(--clr-neutral-700);
+        --app-clr-dropdown: var(--clr-neutral-700);
+        --app-clr-body-text: var(--clr-neutral-100);
+        --app-clr-body-devider: var(--clr-neutral-500);
+        --app-clr-toggle: var(--clr-accent-200);
+        --app-clr-shadow: var(--clr-accent-200);
+    }
+}
+
+
+:root:has(#theme-toggle:checked) {
+    color-scheme: dark;
+    --app-clr-background: var(--clr-neutral-800);
+    --app-clr-container: var(--clr-neutral-700);
+    --app-clr-dropdown: var(--clr-neutral-700);
+    --app-clr-body-text: var(--clr-neutral-100);
+    --app-clr-body-devider: var(--clr-neutral-500);
+    --app-clr-toggle: var(--clr-accent-200);
+    --app-clr-shadow: var(--clr-accent-200);
 }
 
 
@@ -153,10 +183,12 @@ select {
     gap: var(--gap, 1rem);
 }
 
+
 .flex {
     display: flex;
     gap: var(--gap, 1rem);
 }
+
 
 .ff-sans-serif { font-family: var(--ff-sans-serif); }
 
@@ -217,14 +249,10 @@ select {
 
 /* general */
 body {
-    --app-clr-container: var(--clr-neutral-200);
-    --app-clr-body-text: var(--clr-neutral-600);
-    --app-clr-body-devider: var(--clr-neutral-300);
-    --app-clr-toggle: var(--clr-neutral-400);
-
     font-family: var(--ff-current);
     font-size: var(--fs-200);
     background-color: var(--app-clr-background, var(--clr-neutral-100));
+    color: var(--app-clr-body-text);
 }
 
 
@@ -264,6 +292,11 @@ body {
 }
 
 
+.primary-header__toggle-container:has(:checked) {
+    --icon-color: var(--clr-accent-200);
+}
+
+
 .font-selector {
     position: relative;
     padding-right: var(--_controls-gap);
@@ -281,6 +314,7 @@ body {
     background: none;
     border: none;
     cursor: pointer;
+    color: inherit;
 }
 
 
@@ -305,8 +339,8 @@ body {
     position: absolute;
     right: 0;
     border-radius: 1rem;
-    background: var(--clr-neutral-100);
-    box-shadow: 0px 0px 30px hsla(0, 0%, 0%, 10%);
+    background: var(--app-clr-dropdown);
+    box-shadow: 0px 0px 40px var(--app-clr-shadow);
 }
 
 
@@ -344,7 +378,7 @@ body {
     width: var(--_track-width);
     padding-block: var(--_track-padding);
 
-    background-color: var(--clr-neutral-400);
+    background-color: var(--app-clr-toggle);
     border-radius: var(--_track-border-radius);
 
     cursor: pointer;
@@ -388,7 +422,7 @@ body {
     padding: 1.25rem 1.5rem;
     border-radius: 1rem;
 
-    background: var(--clr-neutral-200);
+    background: var(--app-clr-container);
 }
 
 
@@ -441,6 +475,12 @@ body {
 }
 
 
+.definition-block__audio-button:hover {
+    --icon-play-opacity: 1;
+    --icon-play-color: white;
+}
+
+
 .definition-block__meanings {
     --gap: 2.188rem;
 }
@@ -456,6 +496,11 @@ body {
 .definition-block__source > .flex {
     flex-wrap: wrap;
     --gap: 1.25rem;
+}
+
+
+.definition-block__source a {
+    color: var(--app-clr-body-text);
 }
 
 
@@ -516,7 +561,6 @@ body {
 }
 
 
-
 .error-page {
     margin-top: 8.25rem;
 }
@@ -537,4 +581,14 @@ body {
 .enumeration > ul {
     flex-wrap: wrap;
     padding: 0;
+}
+
+
+.enumeration__item {
+    cursor: pointer;
+}
+
+
+.enumeration__item:hover {
+    text-decoration: underline;
 }
