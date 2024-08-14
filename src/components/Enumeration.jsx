@@ -1,7 +1,7 @@
 
 export default function Enumeration({ subject, items }) {
   return (
-    <div className="enumeration flex"> 
+    <div className="enumeration flex fs-heading-s"> 
         <span className="clr-neutral-400"> {subject}: </span>
         <ul className="flex" role="list">
             {

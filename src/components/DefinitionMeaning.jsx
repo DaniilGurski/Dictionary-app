@@ -4,9 +4,9 @@ export default function DefinitionMeaning({ meaning }) {
     const { partOfSpeech, definitions: meaningDefinitions, synonyms, antonyms } = meaning;
     return (
         <article className="definition-meaning grid" key={partOfSpeech}>
-            <h2 className="italic fw-bold"> {partOfSpeech} </h2>
+            <h2 className="fs-heading-m italic fw-bold"> {partOfSpeech} </h2>
 
-            <div className="grid">
+                <div className="grid">
                 <h3 className="clr-neutral-400"> Meaning </h3>
                 <ul className="definition-meaning__definitions grid">
                     {meaningDefinitions.map((definition, index) => {
