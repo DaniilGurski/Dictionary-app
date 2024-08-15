@@ -1,7 +1,14 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 export default function Toggle() {
-  const [isDarkMode, setIsDarkMode] = useState(JSON.parse(localStorage.getItem("dictionary-app-theme") || false))
+  const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+
+  const [isDarkMode, setIsDarkMode] = useState(
+    JSON.parse(localStorage.getItem("dictionary-app-theme") || 
+    prefersDarkMode
+  ))
+
+  useEffect(() => localStorage.setItem("dictionary-app-theme", isDarkMode), [isDarkMode])
 
   return (
     <div className="primary-header__toggle-container flex">
@@ -14,8 +21,7 @@ export default function Toggle() {
         aria-checked={isDarkMode}
         checked={isDarkMode}
         onChange={() => {
-          localStorage.setItem("dictionary-app-theme", !isDarkMode);
-          setIsDarkMode(JSON.parse(localStorage.getItem("dictionary-app-theme")));
+          setIsDarkMode(!isDarkMode)
         }}
         />
 
