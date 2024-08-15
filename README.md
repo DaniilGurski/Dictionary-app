@@ -1,4 +1,6 @@
 # Dictionary web app
+Web Application based on [Free Dictionary API](https://dictionaryapi.dev/) with the ability to search for word definitions in English and other nice things like changing font type on the page, playing audio pronunciation of the definition. 
+
 
 ## Table of contents
 
@@ -38,6 +40,8 @@
 - Handle cases when API gives both error and data at the same time
 
 - Working with input of search type and its styling
+
+- Using html audio tag
 
 
 ### Useful resources
