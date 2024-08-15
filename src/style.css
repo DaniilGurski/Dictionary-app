@@ -164,7 +164,7 @@ select {
 }
 
 
-html:has(#theme-toggle:checked) {
+html:has(#theme-toggle[aria-checked="true"]) {
     color-scheme: dark;
     --app-clr-background: var(--clr-neutral-800);
     --app-clr-container: var(--clr-neutral-700);
@@ -176,7 +176,7 @@ html:has(#theme-toggle:checked) {
 }
 
 
-html:not(:has(#theme-toggle:checked)) {
+html:has(#theme-toggle[aria-checked="false"]) {
     color-scheme: light;
     --app-clr-background: var(--clr-neutral-100);
     --app-clr-container: var(--clr-neutral-200);
