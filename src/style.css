@@ -509,25 +509,25 @@ body {
 }
 
 
-.definition-block__source {
+.sources {
     border-top: 1px solid var(--app-clr-body-devider);
     padding-top: 1.25rem;
     --underline-offset: 8px;
 }
 
 
-.definition-block__source > .flex {
+.sources > .flex {
     flex-wrap: wrap;
     --gap: 1.25rem;
 }
 
 
-.definition-block__source a {
+.sources a {
     color: var(--app-clr-body-text);
 }
 
 
-.definition-block__source a::after {
+.sources a::after {
     content: url("./assets/images/icon-new-window.svg");
     margin-left: 0.5rem;
 }
