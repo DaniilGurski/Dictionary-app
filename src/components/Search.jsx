@@ -28,6 +28,7 @@ export default function Search() {
                 placeholder="Search for any word..." 
                 aria-describedby="error-message"
                 aria-invalid={!formValid}
+                aria-label="search bar"
                 onChange={(e) => setSearchValue(e.target.value)}
                 />
 
