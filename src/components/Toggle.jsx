@@ -8,7 +8,7 @@ export default function Toggle() {
     prefersDarkMode
   ))
 
-  useEffect(() => console.log(prefersDarkMode))
+  useEffect(() => localStorage.setItem("dictionary-app-theme", isDarkMode), [isDarkMode])
 
   return (
     <div className="primary-header__toggle-container flex">
