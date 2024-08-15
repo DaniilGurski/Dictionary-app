@@ -1,6 +1,8 @@
-
+import { useState } from "react"
 
 export default function Toggle() {
+  const [isDarkMode, setIsDarkMode] = useState(JSON.parse(localStorage.getItem("dictionary-app-theme") || false))
+
   return (
     <div className="primary-header__toggle-container flex">
         <input 
@@ -9,7 +11,12 @@ export default function Toggle() {
         type="checkbox" 
         role="switch"
         aria-label="change page theme"
-        aria-checked="false"
+        aria-checked={isDarkMode}
+        checked={isDarkMode}
+        onChange={() => {
+          localStorage.setItem("dictionary-app-theme", !isDarkMode);
+          setIsDarkMode(JSON.parse(localStorage.getItem("dictionary-app-theme")));
+        }}
         />
 
         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22">
