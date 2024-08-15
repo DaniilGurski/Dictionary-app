@@ -112,8 +112,6 @@ select {
 
 
 :root {
-    color-scheme: light dark;
-
     --clr-accent-300: hsl(274, 82%, 50%);
     --clr-accent-200: hsl(274, 82%, 60%);
     --clr-accent-100: hsl(0, 100%, 66%);
@@ -139,6 +137,7 @@ select {
     --fs-200: 1.125rem;  /* 18px */
     --fs-100: 0.875rem;  /* 14px */
 
+    --app-clr-background: var(--clr-neutral-100);
     --app-clr-container: var(--clr-neutral-200);
     --app-clr-dropdown: var(--clr-neutral-100);
     --app-clr-body-text: var(--clr-neutral-600);
@@ -152,7 +151,7 @@ select {
         --fs-300: 1rem;
         --fs-200: 0.938rem
     }
-
+    
     @media (prefers-color-scheme: dark) {
         --app-clr-background: var(--clr-neutral-800);
         --app-clr-container: var(--clr-neutral-700);
@@ -165,7 +164,7 @@ select {
 }
 
 
-:root:has(#theme-toggle:checked) {
+html:has(#theme-toggle:checked) {
     color-scheme: dark;
     --app-clr-background: var(--clr-neutral-800);
     --app-clr-container: var(--clr-neutral-700);
@@ -174,6 +173,18 @@ select {
     --app-clr-body-devider: var(--clr-neutral-500);
     --app-clr-toggle: var(--clr-accent-200);
     --app-clr-shadow: var(--clr-accent-200);
+}
+
+
+html:not(:has(#theme-toggle:checked)) {
+    color-scheme: light;
+    --app-clr-background: var(--clr-neutral-100);
+    --app-clr-container: var(--clr-neutral-200);
+    --app-clr-dropdown: var(--clr-neutral-100);
+    --app-clr-body-text: var(--clr-neutral-600);
+    --app-clr-body-devider: var(--clr-neutral-300);
+    --app-clr-toggle: var(--clr-neutral-400);
+    --app-clr-shadow: hsla(0, 0%, 0%, 10%);
 }
 
 
@@ -265,10 +276,15 @@ select {
 
 
 /* general */
+html {
+    color-scheme: dark light;
+}
+
+
 body {
     font-family: var(--ff-current);
     font-size: var(--fs-200);
-    background-color: var(--app-clr-background, var(--clr-neutral-100));
+    background-color: var(--app-clr-background);
     color: var(--app-clr-body-text);
 }
 
