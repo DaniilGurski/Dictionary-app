@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react"
 
 export default function Toggle() {
-  const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
-
+  const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
   const [isDarkMode, setIsDarkMode] = useState(
     JSON.parse(localStorage.getItem("dictionary-app-theme") || 
     prefersDarkMode
-  ))
-
+  ));
+  
   useEffect(() => localStorage.setItem("dictionary-app-theme", isDarkMode), [isDarkMode])
 
   return (
