@@ -17,6 +17,8 @@ export default function App() {
   return (
     <>
       <header className="primary-header">
+        <h1 className="visually-hidden"> dictionary web app </h1>
+        
         <img className="primary-header__logo" src={logo} alt="dictionary logo" />
 
         <div className="primary-header__controls">
