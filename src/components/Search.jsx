@@ -21,13 +21,12 @@ export default function Search() {
     return (
         <form>
             <div 
-            className={`search-bar fs-heading-s ${!formValid ? "error" : ""}`}
-            aria-live="polite">
+            className={`search-bar fs-heading-s ${!formValid ? "error" : ""}`}>
                 <input 
                 type="search" 
                 value={searchValue} 
                 placeholder="Search for any word..." 
-                aria-errormessage="error-message"
+                aria-describedby="error-message"
                 aria-invalid={!formValid}
                 onChange={(e) => setSearchValue(e.target.value)}
                 />
@@ -40,7 +39,9 @@ export default function Search() {
                 </button>
             </div>
 
-            {!formValid && <span className="clr-error" id="error-message"> Whoops, can't be empty... </span>}
+            <div aria-live="assertive" id="error-message" lang="en">
+                {!formValid && <span className="clr-error"> Whoops, can't be empty... </span>}
+            </div>
         </form>
     )
 }
